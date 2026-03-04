@@ -431,7 +431,7 @@ function Expertise() {
         </div>
         <div style={{ marginTop: 24, padding: "16px 20px", backgroundColor: C.violetPale, border: `1px dashed ${C.border}`, display: "inline-block" }}>
           <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: C.muted, letterSpacing: "0.08em" }}>
-            // Pour ajouter un article : modifier le tableau ARTICLES en début de fichier
+        
           </span>
         </div>
       </div>
