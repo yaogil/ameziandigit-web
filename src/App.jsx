@@ -98,6 +98,24 @@ const METHODOLOGY_STEPS = [
   },
 ];
 
+// ─── PALETTE ────────────────────────────────────────────────────────────────
+const C = {
+  bg: "#FAFAFA",
+  bgDark: "#F3F0FF",
+  violet: "#6D28D9",
+  violetLight: "#7C3AED",
+  violetPale: "#EDE9FE",
+  yellow: "#F59E0B",
+  yellowLight: "#FCD34D",
+  yellowPale: "#FFFBEB",
+  dark: "#1C1027",
+  mid: "#4B3F6B",
+  muted: "#8B7BA8",
+  white: "#FFFFFF",
+  border: "rgba(109,40,217,0.12)",
+  borderYellow: "rgba(245,158,11,0.3)",
+};
+
 // ─── HOOKS ──────────────────────────────────────────────────────────────────
 function useActiveSection(ids) {
   const [active, setActive] = useState(ids[0]);
@@ -135,39 +153,30 @@ function Nav({ active }) {
   }, []);
 
   return (
-    <nav
-      style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        transition: "all 0.3s ease",
-        backgroundColor: scrolled ? "rgba(6,12,26,0.96)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none",
-      }}
-    >
+    <nav style={{
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+      transition: "all 0.3s ease",
+      backgroundColor: scrolled ? "rgba(250,250,250,0.97)" : "transparent",
+      backdropFilter: scrolled ? "blur(12px)" : "none",
+      borderBottom: scrolled ? `1px solid ${C.border}` : "none",
+    }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{ width: 8, height: 8, backgroundColor: "#3B82F6", borderRadius: 2, transform: "rotate(45deg)" }} />
-          <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 15, color: "#F8FAFC", letterSpacing: "0.05em" }}>
-            DATA SUPPLY CHAIN
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ width: 10, height: 10, background: `linear-gradient(135deg, ${C.violet}, ${C.yellow})`, borderRadius: 3, transform: "rotate(45deg)" }} />
+          <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 15, color: C.dark, letterSpacing: "0.04em" }}>
+            AMEZIAN<span style={{ color: C.violet }}>DIGIT</span>
           </span>
         </div>
         <div style={{ display: "flex", gap: 36, alignItems: "center" }}>
           {links.map((l) => (
-            <a
-              key={l.id}
-              href={`#${l.id}`}
-              style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: 12,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: active === l.id ? "#3B82F6" : "#94A3B8",
-                textDecoration: "none",
-                transition: "color 0.2s",
-                borderBottom: active === l.id ? "1px solid #3B82F6" : "1px solid transparent",
-                paddingBottom: 2,
-              }}
-            >
+            <a key={l.id} href={`#${l.id}`} style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase",
+              color: active === l.id ? C.violet : C.muted,
+              textDecoration: "none", transition: "color 0.2s",
+              borderBottom: active === l.id ? `2px solid ${C.yellow}` : "2px solid transparent",
+              paddingBottom: 2,
+            }}>
               {l.label}
             </a>
           ))}
@@ -179,17 +188,23 @@ function Nav({ active }) {
 
 function Hero() {
   return (
-    <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", backgroundColor: "#060C1A" }}>
-      {/* Grid background */}
+    <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", backgroundColor: C.white }}>
+      {/* Geometric background */}
       <div style={{
         position: "absolute", inset: 0,
-        backgroundImage: "linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px)",
-        backgroundSize: "60px 60px",
+        backgroundImage: `linear-gradient(${C.border} 1px, transparent 1px), linear-gradient(90deg, ${C.border} 1px, transparent 1px)`,
+        backgroundSize: "64px 64px",
       }} />
-      {/* Radial accent */}
+      {/* Violet radial */}
       <div style={{
-        position: "absolute", top: "20%", right: "10%", width: 600, height: 600,
-        background: "radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)",
+        position: "absolute", top: "-10%", right: "-5%", width: 700, height: 700,
+        background: `radial-gradient(circle, ${C.violetPale} 0%, transparent 65%)`,
+        pointerEvents: "none",
+      }} />
+      {/* Yellow accent blob */}
+      <div style={{
+        position: "absolute", bottom: "5%", left: "5%", width: 300, height: 300,
+        background: `radial-gradient(circle, ${C.yellowPale} 0%, transparent 70%)`,
         pointerEvents: "none",
       }} />
 
@@ -197,53 +212,54 @@ function Hero() {
         <div style={{ maxWidth: 820 }}>
           {/* Label */}
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 40 }}>
-            <div style={{ width: 40, height: 1, backgroundColor: "#3B82F6" }} />
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, letterSpacing: "0.2em", color: "#3B82F6", textTransform: "uppercase" }}>
+            <div style={{ width: 40, height: 2, background: `linear-gradient(90deg, ${C.violet}, ${C.yellow})` }} />
+            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, letterSpacing: "0.2em", color: C.violet, textTransform: "uppercase" }}>
               Consultant Freelance — IRP & Optimisation Robuste
             </span>
           </div>
 
-          <h1 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "clamp(40px, 6vw, 76px)", lineHeight: 1.05, color: "#F8FAFC", margin: "0 0 32px 0" }}>
+          <h1 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "clamp(40px, 6vw, 76px)", lineHeight: 1.05, color: C.dark, margin: "0 0 32px 0" }}>
             Résoudre le conflit{" "}
-            <span style={{ color: "#3B82F6" }}>Stocks</span>
+            <span style={{ color: C.violet }}>Stocks</span>
             {" "}vs{" "}
-            <span style={{ color: "#64748B" }}>Transport</span>
+            <span style={{ color: C.yellow }}>Transport</span>
             <br />sous incertitude.
           </h1>
 
-          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 18, lineHeight: 1.7, color: "#94A3B8", maxWidth: 620, margin: "0 0 48px 0" }}>
+          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 18, lineHeight: 1.7, color: C.mid, maxWidth: 620, margin: "0 0 48px 0" }}>
             Les décisions logistiques optimales n'existent pas en régime déterministe. Elles se construisent dans l'incertitude, par la modélisation mathématique rigoureuse des flux, des stocks et des perturbations réelles.
           </p>
 
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
             <a href="#services" style={{
               fontFamily: "'DM Mono', monospace", fontSize: 13, letterSpacing: "0.08em",
-              padding: "14px 28px", backgroundColor: "#3B82F6", color: "#fff",
-              textDecoration: "none", border: "none", cursor: "pointer",
-              transition: "background 0.2s",
+              padding: "14px 32px", background: `linear-gradient(135deg, ${C.violet}, ${C.violetLight})`,
+              color: C.white, textDecoration: "none", boxShadow: `0 4px 20px rgba(109,40,217,0.25)`,
+              transition: "transform 0.2s, box-shadow 0.2s",
             }}>
               Voir les services
             </a>
-            <a href="#expertise" style={{
+            <a href="#contact" style={{
               fontFamily: "'DM Mono', monospace", fontSize: 13, letterSpacing: "0.08em",
-              padding: "14px 28px", backgroundColor: "transparent", color: "#94A3B8",
-              textDecoration: "none", border: "1px solid rgba(148,163,184,0.2)",
-              transition: "border-color 0.2s, color 0.2s",
+              padding: "14px 32px", backgroundColor: C.yellow, color: C.dark,
+              textDecoration: "none", fontWeight: 600,
+              boxShadow: `0 4px 20px rgba(245,158,11,0.25)`,
+              transition: "transform 0.2s",
             }}>
-              Lire les articles
+              Me contacter
             </a>
           </div>
 
-          {/* Stats bar */}
-          <div style={{ display: "flex", gap: 48, marginTop: 72, paddingTop: 48, borderTop: "1px solid rgba(255,255,255,0.06)", flexWrap: "wrap" }}>
+          {/* Stats */}
+          <div style={{ display: "flex", gap: 48, marginTop: 72, paddingTop: 48, borderTop: `1px solid ${C.border}`, flexWrap: "wrap" }}>
             {[
               { value: "IRP", label: "Spécialisation principale" },
               { value: "Python", label: "Implémentation solver" },
               { value: "MIP / SP", label: "Paradigmes d'optimisation" },
             ].map((s) => (
               <div key={s.value}>
-                <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 22, color: "#F8FAFC" }}>{s.value}</div>
-                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#475569", marginTop: 4, letterSpacing: "0.08em" }}>{s.label}</div>
+                <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 22, color: C.violet }}>{s.value}</div>
+                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: C.muted, marginTop: 4, letterSpacing: "0.08em" }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -255,34 +271,37 @@ function Hero() {
 
 function Services() {
   return (
-    <section id="services" style={{ padding: "120px 0", backgroundColor: "#0A1020" }}>
+    <section id="services" style={{ padding: "120px 0", backgroundColor: C.bgDark }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
         <SectionHeader tag="Freelance" title="Services" />
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 2, marginTop: 64 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24, marginTop: 64 }}>
           {SERVICES.map((s, i) => (
             <div key={s.id} style={{
-              backgroundColor: "#0D1628",
-              padding: "48px 40px",
-              borderTop: "2px solid #3B82F6",
-              position: "relative",
-              transition: "background 0.2s",
-            }}>
-              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#3B82F6", letterSpacing: "0.2em", marginBottom: 28 }}>
+              backgroundColor: C.white, padding: "48px 40px",
+              borderTop: `3px solid ${i === 1 ? C.yellow : C.violet}`,
+              boxShadow: "0 4px 24px rgba(109,40,217,0.07)",
+              transition: "transform 0.2s, box-shadow 0.2s",
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(109,40,217,0.13)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 24px rgba(109,40,217,0.07)"; }}
+            >
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: i === 1 ? C.yellow : C.violet, letterSpacing: "0.2em", marginBottom: 28, fontWeight: 600 }}>
                 {s.number}
               </div>
-              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 22, color: "#F8FAFC", margin: "0 0 20px 0", lineHeight: 1.2 }}>
+              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 22, color: C.dark, margin: "0 0 20px 0", lineHeight: 1.2 }}>
                 {s.title}
               </h3>
-              <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 15, lineHeight: 1.7, color: "#64748B", margin: "0 0 32px 0" }}>
+              <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 15, lineHeight: 1.7, color: C.mid, margin: "0 0 32px 0" }}>
                 {s.description}
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {s.tags.map((t) => (
                   <span key={t} style={{
-                    fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.12em",
-                    padding: "4px 10px", backgroundColor: "rgba(59,130,246,0.08)",
-                    color: "#3B82F6", border: "1px solid rgba(59,130,246,0.15)",
+                    fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.1em",
+                    padding: "4px 10px",
+                    backgroundColor: i === 1 ? C.yellowPale : C.violetPale,
+                    color: i === 1 ? "#92400E" : C.violet,
+                    border: `1px solid ${i === 1 ? C.borderYellow : C.border}`,
                   }}>
                     {t}
                   </span>
@@ -298,34 +317,31 @@ function Services() {
 
 function ArticleCard({ article, onSelect }) {
   return (
-    <div
-      onClick={() => onSelect(article)}
-      style={{
-        backgroundColor: "#0D1628", padding: "40px", cursor: "pointer",
-        border: "1px solid rgba(255,255,255,0.04)",
-        transition: "border-color 0.2s, background 0.2s",
-        display: "flex", flexDirection: "column", gap: 16,
-      }}
-      onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(59,130,246,0.3)"; e.currentTarget.style.backgroundColor = "#101a2e"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.04)"; e.currentTarget.style.backgroundColor = "#0D1628"; }}
+    <div onClick={() => onSelect(article)} style={{
+      backgroundColor: C.white, padding: "40px", cursor: "pointer",
+      border: `1px solid ${C.border}`, transition: "all 0.2s",
+      boxShadow: "0 2px 12px rgba(109,40,217,0.05)",
+    }}
+      onMouseEnter={(e) => { e.currentTarget.style.borderColor = C.violet; e.currentTarget.style.boxShadow = "0 8px 32px rgba(109,40,217,0.12)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.boxShadow = "0 2px 12px rgba(109,40,217,0.05)"; e.currentTarget.style.transform = "translateY(0)"; }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.15em", color: "#3B82F6", padding: "3px 8px", border: "1px solid rgba(59,130,246,0.2)", backgroundColor: "rgba(59,130,246,0.06)" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.12em", color: C.violet, padding: "3px 10px", border: `1px solid ${C.border}`, backgroundColor: C.violetPale }}>
           {article.tag}
         </span>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#374151", letterSpacing: "0.08em" }}>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: C.muted }}>
           {article.date} — {article.readTime}
         </span>
       </div>
-      <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 20, color: "#F8FAFC", margin: 0, lineHeight: 1.25 }}>
+      <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 20, color: C.dark, margin: "0 0 12px 0", lineHeight: 1.25 }}>
         {article.title}
       </h3>
-      <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: "#64748B", margin: 0, lineHeight: 1.6 }}>
+      <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: C.mid, margin: "0 0 24px 0", lineHeight: 1.6 }}>
         {article.subtitle}
       </p>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 8 }}>
-        <div style={{ width: 16, height: 1, backgroundColor: "#3B82F6" }} />
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#3B82F6", letterSpacing: "0.1em" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div style={{ width: 20, height: 2, background: `linear-gradient(90deg, ${C.violet}, ${C.yellow})` }} />
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: C.violet, letterSpacing: "0.1em" }}>
           Lire l'analyse
         </span>
       </div>
@@ -342,62 +358,55 @@ function ArticleModal({ article, onClose }) {
   return (
     <div style={{
       position: "fixed", inset: 0, zIndex: 200,
-      backgroundColor: "rgba(6,12,26,0.95)", backdropFilter: "blur(8px)",
+      backgroundColor: "rgba(28,16,39,0.7)", backdropFilter: "blur(8px)",
       display: "flex", alignItems: "flex-start", justifyContent: "center",
       padding: "60px 20px", overflowY: "auto",
     }} onClick={onClose}>
-      <div
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          maxWidth: 760, width: "100%", backgroundColor: "#0D1628",
-          border: "1px solid rgba(59,130,246,0.2)", padding: "60px",
-        }}
-      >
+      <div onClick={(e) => e.stopPropagation()} style={{
+        maxWidth: 760, width: "100%", backgroundColor: C.white,
+        border: `1px solid ${C.border}`, padding: "60px",
+        boxShadow: "0 24px 80px rgba(109,40,217,0.2)",
+      }}>
         <button onClick={onClose} style={{
           fontFamily: "'DM Mono', monospace", fontSize: 11, letterSpacing: "0.15em",
-          backgroundColor: "transparent", border: "1px solid rgba(255,255,255,0.1)",
-          color: "#64748B", padding: "8px 16px", cursor: "pointer", marginBottom: 40,
+          backgroundColor: C.violetPale, border: `1px solid ${C.border}`,
+          color: C.violet, padding: "8px 16px", cursor: "pointer", marginBottom: 40,
         }}>
           FERMER
         </button>
-
         <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 32 }}>
-          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#3B82F6", border: "1px solid rgba(59,130,246,0.3)", padding: "3px 8px" }}>{article.tag}</span>
-          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#374151" }}>{article.date} — {article.readTime} de lecture</span>
+          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: C.violet, border: `1px solid ${C.border}`, padding: "3px 8px", backgroundColor: C.violetPale }}>{article.tag}</span>
+          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: C.muted }}>{article.date} — {article.readTime}</span>
         </div>
-
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 32, color: "#F8FAFC", margin: "0 0 12px 0", lineHeight: 1.15 }}>
+        <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 32, color: C.dark, margin: "0 0 12px 0", lineHeight: 1.15 }}>
           {article.title}
         </h2>
-        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, color: "#3B82F6", margin: "0 0 40px 0", fontStyle: "italic" }}>
+        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, color: C.violet, margin: "0 0 40px 0", fontStyle: "italic" }}>
           {article.subtitle}
         </p>
-
-        <div style={{ borderLeft: "2px solid #3B82F6", paddingLeft: 24, marginBottom: 40 }}>
-          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 15, lineHeight: 1.8, color: "#94A3B8", margin: 0 }}>
+        <div style={{ borderLeft: `3px solid ${C.yellow}`, paddingLeft: 24, marginBottom: 40 }}>
+          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 15, lineHeight: 1.8, color: C.mid, margin: 0 }}>
             {article.abstract}
           </p>
         </div>
-
-        <h4 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: "0.12em", color: "#3B82F6", marginBottom: 20, textTransform: "uppercase" }}>
+        <h4 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: "0.15em", color: C.violet, marginBottom: 20, textTransform: "uppercase" }}>
           Points clés
         </h4>
         <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 40 }}>
           {article.keyPoints.map((p, i) => (
             <div key={i} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#3B82F6", flexShrink: 0, marginTop: 2 }}>
+              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: C.yellow, flexShrink: 0, marginTop: 2, fontWeight: 700 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: "#94A3B8", lineHeight: 1.6 }}>{p}</span>
+              <span style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: C.mid, lineHeight: 1.6 }}>{p}</span>
             </div>
           ))}
         </div>
-
-        <div style={{ backgroundColor: "#060C1A", padding: "24px", border: "1px solid rgba(255,255,255,0.04)" }}>
-          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.15em", color: "#475569", display: "block", marginBottom: 10 }}>
+        <div style={{ backgroundColor: C.violetPale, padding: "24px", border: `1px solid ${C.border}` }}>
+          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.15em", color: C.violet, display: "block", marginBottom: 10 }}>
             MÉTHODOLOGIE
           </span>
-          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: "#64748B", margin: 0, lineHeight: 1.6 }}>
+          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: C.mid, margin: 0, lineHeight: 1.6 }}>
             {article.methodology}
           </p>
         </div>
@@ -409,26 +418,23 @@ function ArticleModal({ article, onClose }) {
 function Expertise() {
   const [selected, setSelected] = useState(null);
   return (
-    <section id="expertise" style={{ padding: "120px 0", backgroundColor: "#060C1A" }}>
+    <section id="expertise" style={{ padding: "120px 0", backgroundColor: C.bg }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
         <SectionHeader tag="Blog / Recherche" title="Espace Expertise" />
-        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 15, color: "#475569", maxWidth: 520, margin: "16px 0 64px 0", lineHeight: 1.7 }}>
+        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 15, color: C.mid, maxWidth: 520, margin: "16px 0 64px 0", lineHeight: 1.7 }}>
           Analyses de la littérature récente en optimisation de chaînes logistiques. Chaque article est structuré pour le praticien : abstracts synthétiques, points clés, méthodologie applicable.
         </p>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 2 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 24 }}>
           {ARTICLES.map((a) => (
             <ArticleCard key={a.id} article={a} onSelect={setSelected} />
           ))}
         </div>
-
-        <div style={{ marginTop: 24, padding: "20px", backgroundColor: "#0A1020", border: "1px dashed rgba(255,255,255,0.06)", display: "inline-block" }}>
-          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#374151", letterSpacing: "0.1em" }}>
-            // Pour ajouter un article : modifier le tableau ARTICLES en début de fichier ou l'externaliser dans articles.json
+        <div style={{ marginTop: 24, padding: "16px 20px", backgroundColor: C.violetPale, border: `1px dashed ${C.border}`, display: "inline-block" }}>
+          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: C.muted, letterSpacing: "0.08em" }}>
+            // Pour ajouter un article : modifier le tableau ARTICLES en début de fichier
           </span>
         </div>
       </div>
-
       {selected && <ArticleModal article={selected} onClose={() => setSelected(null)} />}
     </section>
   );
@@ -436,54 +442,47 @@ function Expertise() {
 
 function Methodologie() {
   return (
-    <section id="methodologie" style={{ padding: "120px 0", backgroundColor: "#0A1020" }}>
+    <section id="methodologie" style={{ padding: "120px 0", backgroundColor: C.dark }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-        <SectionHeader tag="Approche" title="Méthodologie" />
-        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 15, color: "#475569", maxWidth: 480, margin: "16px 0 80px 0", lineHeight: 1.7 }}>
+        <SectionHeader tag="Approche" title="Méthodologie" dark />
+        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.4)", maxWidth: 480, margin: "16px 0 80px 0", lineHeight: 1.7 }}>
           Chaque mission suit un processus structuré en trois phases, de la donnée brute à la politique de décision déployable.
         </p>
-
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0, position: "relative" }}>
-          {/* Connector lines */}
-          <div style={{
-            position: "absolute", top: "50px", left: "calc(33% - 0px)", right: "calc(33% - 0px)", height: 1,
-            background: "linear-gradient(90deg, #3B82F6, #1D4ED8)",
-            zIndex: 0,
-          }} />
-
           {METHODOLOGY_STEPS.map((step, i) => (
             <div key={step.id} style={{ padding: "0 32px", position: "relative", zIndex: 1 }}>
-              {/* Number node */}
+              {/* Node */}
               <div style={{
-                width: 48, height: 48, border: "1px solid #3B82F6",
-                backgroundColor: "#0A1020", display: "flex", alignItems: "center", justifyContent: "center",
-                marginBottom: 32,
+                width: 52, height: 52,
+                background: i === 1 ? `linear-gradient(135deg, ${C.yellow}, ${C.yellowLight})` : `linear-gradient(135deg, ${C.violet}, ${C.violetLight})`,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                marginBottom: 36, boxShadow: i === 1 ? `0 4px 20px rgba(245,158,11,0.4)` : `0 4px 20px rgba(109,40,217,0.4)`,
               }}>
-                <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 14, color: "#3B82F6", fontWeight: 700 }}>
+                <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 14, color: C.white, fontWeight: 700 }}>
                   {step.code}
                 </span>
               </div>
-
-              {/* Arrow between steps (not last) */}
+              {/* Connector */}
               {i < 2 && (
                 <div style={{
-                  position: "absolute", top: 23, right: -4, zIndex: 2,
-                  width: 8, height: 8, borderTop: "1px solid #3B82F6", borderRight: "1px solid #3B82F6",
+                  position: "absolute", top: 26, right: -8, zIndex: 2,
+                  width: 10, height: 10,
+                  borderTop: `2px solid ${C.yellow}`,
+                  borderRight: `2px solid ${C.yellow}`,
                   transform: "rotate(45deg)",
                 }} />
               )}
-
-              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 20, color: "#F8FAFC", margin: "0 0 16px 0" }}>
+              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 20, color: C.white, margin: "0 0 16px 0" }}>
                 {step.title}
               </h3>
-              <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, lineHeight: 1.7, color: "#64748B", margin: "0 0 24px 0" }}>
+              <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, lineHeight: 1.7, color: "rgba(255,255,255,0.45)", margin: "0 0 24px 0" }}>
                 {step.description}
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {step.items.map((item) => (
                   <div key={item} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <div style={{ width: 4, height: 4, backgroundColor: "#3B82F6", flexShrink: 0 }} />
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#475569", letterSpacing: "0.08em" }}>
+                    <div style={{ width: 5, height: 5, backgroundColor: C.yellow, flexShrink: 0, borderRadius: 1 }} />
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.08em" }}>
                       {item}
                     </span>
                   </div>
@@ -507,27 +506,37 @@ function Contact() {
   };
 
   return (
-    <section id="contact" style={{ padding: "120px 0", backgroundColor: "#060C1A" }}>
+    <section id="contact" style={{ padding: "120px 0", backgroundColor: C.bg }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
         <SectionHeader tag="Contact" title="Travaillons ensemble" />
-
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, marginTop: 64, alignItems: "start" }}>
           {/* Left */}
           <div>
-            <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, lineHeight: 1.8, color: "#64748B", marginBottom: 48 }}>
+            <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, lineHeight: 1.8, color: C.mid, marginBottom: 48 }}>
               Vous faites face à un problème de stock cyclique, de tournées sous contraintes ou d'optimisation de votre chaîne sous incertitude ? Décrivez votre problème, je reviendrai vers vous dans les 48h.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               {[
-                { label: "LinkedIn", value: "linkedin.com/in/votre-profil", href: "#" },
-                { label: "GitHub", value: "github.com/votre-compte", href: "#" },
-                { label: "Email", value: "contact@votre-domaine.com", href: "#" },
+                { label: "LinkedIn", value: "linkedin.com/in/yaoviamezian", href: "https://linkedin.com/in/yaoviamezian" },
+                { label: "GitHub", value: "github.com/yaogil", href: "https://github.com/yaogil" },
+                { label: "Email", value: "gilbert.automatisation@gmail.com", href: "mailto:gilbert.automatisation@gmail.com" },
               ].map((l) => (
                 <div key={l.label} style={{ display: "flex", gap: 20, alignItems: "center" }}>
-                  <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.15em", color: "#3B82F6", width: 64 }}>
+                  <span style={{
+                    fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.15em",
+                    color: C.white, width: 72, backgroundColor: C.violet,
+                    padding: "4px 8px", textAlign: "center",
+                  }}>
                     {l.label.toUpperCase()}
                   </span>
-                  <a href={l.href} style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: "#94A3B8", textDecoration: "none", borderBottom: "1px solid rgba(148,163,184,0.2)", paddingBottom: 2, transition: "color 0.2s, border-color 0.2s" }}>
+                  <a href={l.href} target="_blank" rel="noreferrer" style={{
+                    fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: C.violet,
+                    textDecoration: "none", borderBottom: `1px solid ${C.border}`, paddingBottom: 2,
+                    transition: "color 0.2s",
+                  }}
+                    onMouseEnter={(e) => { e.target.style.color = C.yellow; }}
+                    onMouseLeave={(e) => { e.target.style.color = C.violet; }}
+                  >
                     {l.value}
                   </a>
                 </div>
@@ -537,11 +546,11 @@ function Contact() {
 
           {/* Form */}
           {sent ? (
-            <div style={{ backgroundColor: "#0D1628", padding: "60px 48px", border: "1px solid rgba(59,130,246,0.2)", display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-start" }}>
-              <div style={{ width: 48, height: 2, backgroundColor: "#3B82F6" }} />
-              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 22, color: "#F8FAFC", margin: 0 }}>Message envoyé.</h3>
-              <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: "#64748B", lineHeight: 1.7, margin: 0 }}>
-                Je reviendrai vers vous dans les 48h ouvrées. En attendant, consultez les articles techniques pour mieux cerner l'approche.
+            <div style={{ backgroundColor: C.violetPale, padding: "60px 48px", border: `1px solid ${C.border}` }}>
+              <div style={{ width: 48, height: 3, background: `linear-gradient(90deg, ${C.violet}, ${C.yellow})`, marginBottom: 24 }} />
+              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 22, color: C.dark, margin: "0 0 12px 0" }}>Message envoyé.</h3>
+              <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: C.mid, lineHeight: 1.7, margin: 0 }}>
+                Je reviendrai vers vous dans les 48h ouvrées.
               </p>
             </div>
           ) : (
@@ -551,53 +560,46 @@ function Contact() {
                 { key: "email", label: "Email professionnel", type: "email", placeholder: "votre@email.com" },
               ].map((f) => (
                 <div key={f.key} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                  <label style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.15em", color: "#3B82F6", textTransform: "uppercase" }}>
+                  <label style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.15em", color: C.violet, textTransform: "uppercase" }}>
                     {f.label}
                   </label>
-                  <input
-                    type={f.type}
-                    placeholder={f.placeholder}
-                    value={form[f.key]}
+                  <input type={f.type} placeholder={f.placeholder} value={form[f.key]}
                     onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
                     style={{
-                      backgroundColor: "#0D1628", border: "1px solid rgba(255,255,255,0.08)",
-                      color: "#F8FAFC", padding: "14px 16px", fontSize: 14,
+                      backgroundColor: C.white, border: `1px solid ${C.border}`,
+                      color: C.dark, padding: "14px 16px", fontSize: 14,
                       fontFamily: "'IBM Plex Sans', sans-serif", outline: "none",
-                      transition: "border-color 0.2s",
                     }}
-                    onFocus={(e) => { e.target.style.borderColor = "rgba(59,130,246,0.5)"; }}
-                    onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                    onFocus={(e) => { e.target.style.borderColor = C.violet; }}
+                    onBlur={(e) => { e.target.style.borderColor = C.border; }}
                   />
                 </div>
               ))}
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.15em", color: "#3B82F6", textTransform: "uppercase" }}>
+                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.15em", color: C.violet, textTransform: "uppercase" }}>
                   Décrivez votre problème
                 </label>
-                <textarea
-                  rows={5}
-                  placeholder="Type de chaîne logistique, volume, contraintes clés, objectif..."
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                <textarea rows={5} placeholder="Type de chaîne logistique, volume, contraintes clés, objectif..."
+                  value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
                   style={{
-                    backgroundColor: "#0D1628", border: "1px solid rgba(255,255,255,0.08)",
-                    color: "#F8FAFC", padding: "14px 16px", fontSize: 14,
-                    fontFamily: "'IBM Plex Sans', sans-serif", outline: "none",
-                    resize: "vertical", transition: "border-color 0.2s",
+                    backgroundColor: C.white, border: `1px solid ${C.border}`,
+                    color: C.dark, padding: "14px 16px", fontSize: 14,
+                    fontFamily: "'IBM Plex Sans', sans-serif", outline: "none", resize: "vertical",
                   }}
-                  onFocus={(e) => { e.target.style.borderColor = "rgba(59,130,246,0.5)"; }}
-                  onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                  onFocus={(e) => { e.target.style.borderColor = C.violet; }}
+                  onBlur={(e) => { e.target.style.borderColor = C.border; }}
                 />
               </div>
-              <button
-                onClick={handleSubmit}
-                style={{
-                  fontFamily: "'DM Mono', monospace", fontSize: 12, letterSpacing: "0.12em",
-                  padding: "16px 32px", backgroundColor: "#3B82F6", color: "#fff", border: "none",
-                  cursor: "pointer", alignSelf: "flex-start", transition: "background 0.2s",
-                }}
-                onMouseEnter={(e) => { e.target.style.backgroundColor = "#2563EB"; }}
-                onMouseLeave={(e) => { e.target.style.backgroundColor = "#3B82F6"; }}
+              <button onClick={handleSubmit} style={{
+                fontFamily: "'DM Mono', monospace", fontSize: 12, letterSpacing: "0.12em",
+                padding: "16px 32px",
+                background: `linear-gradient(135deg, ${C.violet}, ${C.violetLight})`,
+                color: C.white, border: "none", cursor: "pointer", alignSelf: "flex-start",
+                boxShadow: `0 4px 16px rgba(109,40,217,0.3)`,
+                transition: "transform 0.2s, box-shadow 0.2s",
+              }}
+                onMouseEnter={(e) => { e.target.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={(e) => { e.target.style.transform = "translateY(0)"; }}
               >
                 ENVOYER LE MESSAGE
               </button>
@@ -611,29 +613,32 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer style={{ borderTop: "1px solid rgba(255,255,255,0.04)", backgroundColor: "#060C1A", padding: "32px 0" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#1E293B", letterSpacing: "0.08em" }}>
-          © 2025 — Data Supply Chain Consulting
-        </span>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#1E293B", letterSpacing: "0.08em" }}>
-          IRP · Robust Optimization · Python
+    <footer style={{ borderTop: `1px solid ${C.border}`, backgroundColor: C.dark, padding: "40px 0" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ width: 8, height: 8, background: `linear-gradient(135deg, ${C.violet}, ${C.yellow})`, borderRadius: 2, transform: "rotate(45deg)" }} />
+          <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 14, color: C.white, letterSpacing: "0.04em" }}>
+            AMEZIAN<span style={{ color: C.yellow }}>DIGIT</span>
+          </span>
+        </div>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "rgba(255,255,255,0.2)", letterSpacing: "0.08em" }}>
+          © 2025 — Yao Gilbert Amezian · IRP · Robust Optimization · Python
         </span>
       </div>
     </footer>
   );
 }
 
-function SectionHeader({ tag, title }) {
+function SectionHeader({ tag, title, dark }) {
   return (
     <div>
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-        <div style={{ width: 24, height: 1, backgroundColor: "#3B82F6" }} />
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.2em", color: "#3B82F6", textTransform: "uppercase" }}>
+        <div style={{ width: 28, height: 2, background: `linear-gradient(90deg, ${C.violet}, ${C.yellow})` }} />
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.2em", color: C.violet, textTransform: "uppercase" }}>
           {tag}
         </span>
       </div>
-      <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "clamp(28px, 4vw, 48px)", color: "#F8FAFC", margin: 0, lineHeight: 1.1 }}>
+      <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "clamp(28px, 4vw, 48px)", color: dark ? C.white : C.dark, margin: 0, lineHeight: 1.1 }}>
         {title}
       </h2>
     </div>
@@ -650,17 +655,17 @@ export default function App() {
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { background-color: #060C1A; }
+        body { background-color: #FAFAFA; }
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #060C1A; }
-        ::-webkit-scrollbar-thumb { background: #1E3A5F; }
+        ::-webkit-scrollbar-track { background: #F3F0FF; }
+        ::-webkit-scrollbar-thumb { background: #6D28D9; }
         @media (max-width: 768px) {
           nav > div > div:last-child { display: none; }
           section > div > div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
           section > div > div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 48px !important; }
         }
       `}</style>
-      <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", backgroundColor: "#060C1A", minHeight: "100vh" }}>
+      <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", backgroundColor: C.bg, minHeight: "100vh" }}>
         <Nav active={active} />
         <Hero />
         <Services />
