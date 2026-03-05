@@ -1,1 +1,3 @@
-/*    /index.html    200
+src/Blog.jsx   ← nouveau
+src/Admin.jsx  ← nouveau
+src/main.jsx   ← remplace l'existant
