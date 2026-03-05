@@ -211,7 +211,7 @@ function Chatbot({ onClose }) {
       }]);
       if (error) { setStatus("error"); return; }
       setStatus("done");
-      setTimeout(() => addMessage("Parfait. J'ai bien reçu vos informations. Yao Gilbert vous recontactera dans les 24h pour discuter de votre projet.", "bot"), 400);
+      setTimeout(() => addMessage("Parfait. J'ai bien reçu vos informations. Yaovi Gilbert AMEZIAN vous recontactera dans les 24h pour discuter de votre projet.", "bot"), 400);
     }
   };
 
@@ -590,7 +590,7 @@ function Footer({ onChatOpen }) {
           <div style={{ width: 8, height: 8, background: `linear-gradient(135deg, ${C.violet}, ${C.yellow})`, borderRadius: 2, transform: "rotate(45deg)" }} />
           <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 14, color: C.white }}>AMEZIAN<span style={{ color: C.yellow }}>DIGIT</span></span>
         </div>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2025 — Yao Gilbert Amezian · IRP · Robust Optimization · Python</span>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "rgba(255,255,255,0.2)" }}>© 2025 — Yaovi Gilbert AMEZIAN · IRP · Robust Optimization · Python</span>
         <button onClick={onChatOpen} style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.1em", padding: "8px 16px", backgroundColor: "transparent", border: `1px solid rgba(255,255,255,0.15)`, color: "rgba(255,255,255,0.4)", cursor: "pointer" }}>
           DÉMARRER UN PROJET
         </button>
@@ -608,6 +608,108 @@ function SectionHeader({ tag, title, dark }) {
         <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.2em", color: C.violet, textTransform: "uppercase" }}>{tag}</span>
       </div>
       <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "clamp(28px, 4vw, 48px)", color: dark ? C.white : C.dark, margin: 0, lineHeight: 1.1 }}>{title}</h2>
+    </div>
+  );
+}
+
+// ─── COOKIE BANNER ───────────────────────────────────────────────────────────
+function CookieBanner() {
+  const [status, setStatus] = useState("idle"); // idle | visible | accepted | rejected | settings
+  const [analyticsOn, setAnalyticsOn] = useState(true);
+  const [marketingOn, setMarketingOn] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem("cookie_consent");
+    if (!consent) setTimeout(() => setStatus("visible"), 1500);
+  }, []);
+
+  const accept = () => {
+    localStorage.setItem("cookie_consent", JSON.stringify({ essential: true, analytics: true, marketing: marketingOn, date: new Date().toISOString() }));
+    setStatus("accepted");
+  };
+
+  const reject = () => {
+    localStorage.setItem("cookie_consent", JSON.stringify({ essential: true, analytics: false, marketing: false, date: new Date().toISOString() }));
+    setStatus("rejected");
+  };
+
+  const saveSettings = () => {
+    localStorage.setItem("cookie_consent", JSON.stringify({ essential: true, analytics: analyticsOn, marketing: marketingOn, date: new Date().toISOString() }));
+    setStatus("accepted");
+  };
+
+  if (status === "idle" || status === "accepted" || status === "rejected") return null;
+
+  if (status === "settings") return (
+    <div style={{ position: "fixed", inset: 0, zIndex: 400, backgroundColor: "rgba(28,16,39,0.7)", backdropFilter: "blur(4px)", display: "flex", alignItems: "flex-end", justifyContent: "center", padding: "0 0 0 0" }}>
+      <div style={{ width: "100%", maxWidth: 560, backgroundColor: C.white, border: `1px solid ${C.border}`, borderBottom: "none", padding: "40px 40px 32px", boxShadow: "0 -8px 40px rgba(109,40,217,0.15)" }}>
+        <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: C.dark, margin: "0 0 8px 0" }}>Paramètres des cookies</h3>
+        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: C.muted, margin: "0 0 24px 0", lineHeight: 1.6 }}>
+          Personnalisez vos préférences. Les cookies essentiels ne peuvent pas être désactivés — ils assurent le bon fonctionnement du site.
+        </p>
+
+        {[
+          { key: "essential", label: "Essentiels", desc: "Formulaires, sécurité, session. Toujours actifs.", forced: true, value: true },
+          { key: "analytics", label: "Analytiques", desc: "Mesure d'audience anonymisée (visites, pages vues).", forced: false, value: analyticsOn, set: setAnalyticsOn },
+          { key: "marketing", label: "Marketing", desc: "Personnalisation du contenu et suivi des conversions.", forced: false, value: marketingOn, set: setMarketingOn },
+        ].map((c) => (
+          <div key={c.key} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 0", borderBottom: `1px solid ${C.border}` }}>
+            <div>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, fontWeight: 600, color: C.dark, letterSpacing: "0.08em" }}>{c.label}</div>
+              <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 12, color: C.muted, marginTop: 3 }}>{c.desc}</div>
+            </div>
+            <button
+              onClick={() => !c.forced && c.set(!c.value)}
+              style={{
+                width: 44, height: 24, borderRadius: 12, border: "none", cursor: c.forced ? "not-allowed" : "pointer",
+                backgroundColor: c.value ? C.violet : "#D1D5DB",
+                position: "relative", transition: "background 0.2s", flexShrink: 0,
+              }}
+            >
+              <div style={{ width: 18, height: 18, borderRadius: "50%", backgroundColor: C.white, position: "absolute", top: 3, left: c.value ? 23 : 3, transition: "left 0.2s" }} />
+            </button>
+          </div>
+        ))}
+
+        <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
+          <button onClick={saveSettings} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, letterSpacing: "0.1em", padding: "12px 24px", background: `linear-gradient(135deg, ${C.violet}, ${C.violetLight})`, color: C.white, border: "none", cursor: "pointer", flex: 1 }}>
+            ENREGISTRER MES CHOIX
+          </button>
+          <button onClick={() => setStatus("visible")} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, letterSpacing: "0.1em", padding: "12px 20px", backgroundColor: "transparent", color: C.muted, border: `1px solid ${C.border}`, cursor: "pointer" }}>
+            RETOUR
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 400, backgroundColor: C.white, borderTop: `3px solid ${C.violet}`, boxShadow: "0 -8px 40px rgba(109,40,217,0.12)", padding: "20px 32px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
+        <div style={{ flex: 1, minWidth: 280 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+            <div style={{ width: 6, height: 6, backgroundColor: C.violet, borderRadius: 1, transform: "rotate(45deg)" }} />
+            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, fontWeight: 600, color: C.violet, letterSpacing: "0.1em" }}>COOKIES & CONFIDENTIALITÉ</span>
+          </div>
+          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: C.mid, margin: 0, lineHeight: 1.6 }}>
+            Ce site utilise des cookies pour améliorer votre expérience et analyser le trafic. Vos données ne sont jamais vendues à des tiers.{" "}
+            <a href="mailto:gilbert.automatisation@gmail.com" style={{ color: C.violet, textDecoration: "none", borderBottom: `1px solid ${C.border}` }}>
+              Politique de confidentialité
+            </a>
+          </p>
+        </div>
+        <div style={{ display: "flex", gap: 10, flexShrink: 0, flexWrap: "wrap" }}>
+          <button onClick={() => setStatus("settings")} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, letterSpacing: "0.1em", padding: "10px 18px", backgroundColor: "transparent", color: C.muted, border: `1px solid ${C.border}`, cursor: "pointer" }}>
+            PARAMÉTRER
+          </button>
+          <button onClick={reject} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, letterSpacing: "0.1em", padding: "10px 18px", backgroundColor: "transparent", color: C.dark, border: `1px solid ${C.border}`, cursor: "pointer" }}>
+            REFUSER
+          </button>
+          <button onClick={accept} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, letterSpacing: "0.1em", padding: "10px 24px", background: `linear-gradient(135deg, ${C.violet}, ${C.violetLight})`, color: C.white, border: "none", cursor: "pointer", boxShadow: `0 4px 16px rgba(109,40,217,0.3)` }}>
+            ACCEPTER TOUT
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -643,7 +745,7 @@ export default function App() {
 
       {/* Chatbot FAB */}
       <button onClick={() => setShowChatbot(true)} style={{
-        position: "fixed", bottom: 28, right: 28, zIndex: 150,
+        position: "fixed", bottom: 96, right: 28, zIndex: 150,
         width: 56, height: 56, borderRadius: "50%",
         background: `linear-gradient(135deg, ${C.violet}, ${C.violetLight})`,
         border: "none", cursor: "pointer", color: C.white, fontSize: 22,
@@ -665,6 +767,7 @@ export default function App() {
 
       {showNewsletter && <NewsletterPopup onClose={() => setShowNewsletter(false)} />}
       {showChatbot && <Chatbot onClose={() => setShowChatbot(false)} />}
+      <CookieBanner />
     </>
   );
 }
