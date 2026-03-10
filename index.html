@@ -1,13 +1,412 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ameziandigit</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="fr" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       TITRE & DESCRIPTION
+  ══════════════════════════════════════════════════════════════════ -->
+  <title>Consultant Supply Chain & Data Engineering Freelance | AmezianDigit</title>
+  <meta name="description" content="Consultant freelance Supply Chain & Data Engineering. Optimisation logistique, gestion de stocks e-commerce, dashboards Power BI. Résultats prouvés : −17% coûts logistiques. Yaovi Gilbert AMEZIAN — Rabat, Maroc." />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       MOTS-CLÉS, AUTEUR, ROBOTS
+  ══════════════════════════════════════════════════════════════════ -->
+  <meta name="keywords" content="consultant supply chain freelance, optimisation logistique, data engineering, gestion stocks e-commerce, planification commandes fournisseurs, prévision demande, dashboard power bi logistique, VRP optimisation, IRP stochastique, consultant logistique maroc, freelance logistique, seuil réapprovisionnement, stock de sécurité, analyse ABC XYZ, audit logistique, résilience supply chain" />
+  <meta name="author" content="Yaovi Gilbert AMEZIAN" />
+  <meta name="copyright" content="AmezianDigit 2025" />
+  <meta name="language" content="French" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       CANONICAL & HREFLANG
+  ══════════════════════════════════════════════════════════════════ -->
+  <link rel="canonical" href="https://ameziandigit.com/" />
+  <link rel="alternate" hreflang="fr" href="https://ameziandigit.com/" />
+  <link rel="alternate" hreflang="fr-MA" href="https://ameziandigit.com/" />
+  <link rel="alternate" hreflang="fr-FR" href="https://ameziandigit.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://ameziandigit.com/" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       OPEN GRAPH — LinkedIn / Facebook / WhatsApp
+  ══════════════════════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ameziandigit.com/" />
+  <meta property="og:title" content="Consultant Supply Chain & Data Engineering | AmezianDigit" />
+  <meta property="og:description" content="Consultant freelance spécialisé en optimisation logistique, gestion de stocks e-commerce et Data Engineering. Résultats mesurés : −17% coûts logistiques, −40% saisie manuelle." />
+  <meta property="og:image" content="https://ameziandigit.com/og-image.png" />
+  <meta property="og:image:secure_url" content="https://ameziandigit.com/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AmezianDigit — Consultant Supply Chain & Data Engineering, Yaovi Gilbert AMEZIAN" />
+  <meta property="og:site_name" content="AmezianDigit" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       TWITTER / X CARD
+  ══════════════════════════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ameziandigit" />
+  <meta name="twitter:creator" content="@ameziandigit" />
+  <meta name="twitter:title" content="Consultant Supply Chain & Data Engineering | AmezianDigit" />
+  <meta name="twitter:description" content="Optimisation logistique, gestion de stocks e-commerce, Data Engineering. Résultats prouvés : −17% coûts. Yaovi Gilbert AMEZIAN, Major de Promotion." />
+  <meta name="twitter:image" content="https://ameziandigit.com/og-image.png" />
+  <meta name="twitter:image:alt" content="AmezianDigit — Supply Chain & Data Engineering" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       GEO — SEO LOCAL
+  ══════════════════════════════════════════════════════════════════ -->
+  <meta name="geo.region" content="MA-07" />
+  <meta name="geo.placename" content="Rabat, Maroc" />
+  <meta name="geo.position" content="34.020882;-6.841650" />
+  <meta name="ICBM" content="34.020882, -6.841650" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       PERFORMANCE — Preconnect & DNS prefetch
+  ══════════════════════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://zwojlbifcanxppwwxonj.supabase.co" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       FONTS
+  ══════════════════════════════════════════════════════════════════ -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       FAVICONS & PWA
+  ══════════════════════════════════════════════════════════════════ -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#6D28D9" />
+  <meta name="msapplication-TileColor" content="#6D28D9" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SCHEMA.ORG — DONNÉES STRUCTURÉES COMPLÈTES
+  ══════════════════════════════════════════════════════════════════ -->
+
+  <!-- 1. Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://ameziandigit.com/#person",
+    "name": "Yaovi Gilbert AMEZIAN",
+    "givenName": "Yaovi Gilbert",
+    "familyName": "AMEZIAN",
+    "jobTitle": "Consultant Supply Chain & Data Engineer Freelance",
+    "description": "Consultant freelance spécialisé en optimisation logistique, Supply Chain résiliente et Data Engineering. Major de Promotion Licence MIL et M2 MSI — SUPMTI Rabat. Résultats : −17% coûts logistiques VRP, −40% saisie manuelle ETL.",
+    "url": "https://ameziandigit.com",
+    "email": "gilbert.automatisation@gmail.com",
+    "telephone": "+212651225448",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://ameziandigit.com/og-image.png",
+      "width": 1200,
+      "height": 630
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rabat",
+      "addressRegion": "Rabat-Salé-Kénitra",
+      "addressCountry": "MA"
+    },
+    "sameAs": [
+      "https://linkedin.com/in/yaoviamezian",
+      "https://github.com/yaogil",
+      "https://ameziandigit.com"
+    ],
+    "knowsAbout": [
+      "Supply Chain Management", "Optimisation logistique",
+      "Vehicle Routing Problem (VRP)", "Inventory Routing Problem (IRP)",
+      "Data Engineering", "Python", "Power BI", "R", "SQL",
+      "Gestion de stocks e-commerce", "Prévision de la demande",
+      "Analyse ABC-XYZ", "Planification des commandes", "ETL Pipeline"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "SUPMTI",
+      "address": { "@type": "PostalAddress", "addressLocality": "Rabat", "addressCountry": "MA" }
+    },
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "degree",
+        "name": "Master 2 Management des Systèmes d'Information",
+        "description": "Spécialisation SID et Supply Chain résiliente",
+        "recognizedBy": { "@type": "CollegeOrUniversity", "name": "SUPMTI Rabat" },
+        "validFrom": "2024"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "degree",
+        "name": "Licence Management Industriel et Logistique — Major de Promotion",
+        "recognizedBy": { "@type": "CollegeOrUniversity", "name": "SUPMTI Rabat" },
+        "validFrom": "2023"
+      }
+    ],
+    "worksFor": { "@id": "https://ameziandigit.com/#organization" }
+  }
+  </script>
+
+  <!-- 2. ProfessionalService + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["ProfessionalService", "Organization"],
+    "@id": "https://ameziandigit.com/#organization",
+    "name": "AmezianDigit",
+    "description": "Cabinet de conseil freelance en Supply Chain, optimisation logistique et Data Engineering. Services : audit logistique, modélisation IRP/VRP, dashboards Power BI, pipelines ETL, gestion de stocks e-commerce.",
+    "url": "https://ameziandigit.com",
+    "logo": { "@type": "ImageObject", "url": "https://ameziandigit.com/logo.png" },
+    "image": "https://ameziandigit.com/og-image.png",
+    "email": "gilbert.automatisation@gmail.com",
+    "telephone": "+212651225448",
+    "founder": { "@id": "https://ameziandigit.com/#person" },
+    "foundingDate": "2025",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rabat",
+      "addressCountry": "MA"
+    },
+    "areaServed": ["MA","FR","BE","CH","SN","CI"],
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR, MAD",
+    "paymentAccepted": "Virement bancaire, PayPal",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services Supply Chain & Data Engineering",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Audit de Performance Logistique",
+          "description": "Diagnostic complet des flux logistiques : analyse KPI, cartographie des goulots, benchmarking sectoriel. Livré sous 5 jours.",
+          "category": "Supply Chain Consulting",
+          "seller": { "@id": "https://ameziandigit.com/#organization" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Modélisation IRP / VRP et Optimisation Robuste",
+          "description": "Résolution de problèmes d'optimisation (IRP, VRP, CVRPTW) via Python, R et Gurobi. Réduction prouvée de 17% des coûts.",
+          "category": "Optimisation Logistique",
+          "seller": { "@id": "https://ameziandigit.com/#organization" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Dashboards Power BI & Outils Décisionnels",
+          "description": "Tableaux de bord opérationnels et outils de décision pour le pilotage de la performance supply chain.",
+          "category": "Data Engineering",
+          "seller": { "@id": "https://ameziandigit.com/#organization" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Pipeline ETL & Automatisation Data",
+          "description": "Pipelines ETL, web scraping, nettoyage des données. Réduction de 40% du temps de saisie manuelle.",
+          "category": "Data Engineering",
+          "seller": { "@id": "https://ameziandigit.com/#organization" }
+        }
+      ]
+    },
+    "sameAs": ["https://linkedin.com/in/yaoviamezian", "https://github.com/yaogil"]
+  }
+  </script>
+
+  <!-- 3. WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://ameziandigit.com/#website",
+    "url": "https://ameziandigit.com",
+    "name": "AmezianDigit",
+    "description": "Consultant Supply Chain & Data Engineering — Yaovi Gilbert AMEZIAN",
+    "inLanguage": "fr-FR",
+    "publisher": { "@id": "https://ameziandigit.com/#person" },
+    "copyrightYear": 2025,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://ameziandigit.com/blog?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- 4. BreadcrumbList — Accueil -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ameziandigit.com/" }
+    ]
+  }
+  </script>
+
+  <!-- 5. FAQPage — Supply Chain -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce qu'un consultant supply chain freelance ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un consultant supply chain freelance est un expert indépendant spécialisé dans l'optimisation des flux logistiques, la réduction des coûts de transport et de stockage, et l'amélioration de la résilience de la chaîne d'approvisionnement. Il intervient en mission courte ou longue durée, avec flexibilité et tarifs compétitifs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment optimiser la gestion de stocks pour un e-commerce ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'optimisation des stocks e-commerce repose sur 4 leviers : (1) la prévision de la demande via des méthodes statistiques ou ML, (2) le calcul du stock de sécurité, (3) la définition du seuil de réapprovisionnement, et (4) la segmentation ABC-XYZ. Des outils comme Power BI ou Python permettent d'automatiser ces calculs et d'obtenir des alertes en temps réel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quels résultats concrets peut-on attendre d'une mission d'optimisation logistique ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les résultats typiques : −10% à −25% sur les coûts de transport (VRP), −20% à −40% sur les stocks dormants, +15% à +30% sur le taux de service client. Chez AmezianDigit : −17% de coûts logistiques sur le projet VRP 2023, −40% de saisie manuelle sur la mission ETL 2025."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce que l'IRP (Inventory Routing Problem) ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'Inventory Routing Problem (IRP) est un modèle d'optimisation qui intègre simultanément les décisions de gestion des stocks et de planification des tournées de livraison. Il optimise conjointement ces deux dimensions, réduisant les coûts totaux logistiques de 15% à 30%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment créer un dashboard logistique sous Power BI ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un dashboard logistique Power BI efficace nécessite : (1) connecter vos sources (ERP, WMS, Excel), (2) modéliser les données avec tables de faits et dimensions, (3) créer les mesures DAX clés (taux de service, rotation de stock, coût par commande), et (4) concevoir des visuels interactifs. AmezianDigit propose des templates prêts à l'emploi dans sa boutique."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel est le prix d'une mission de conseil en supply chain freelance ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les tarifs varient selon la mission : audit express (2–3 jours) entre 800€ et 2000€, mission courte (1–4 semaines) entre 3000€ et 8000€, mission longue sur devis. AmezianDigit propose aussi des guides à partir de 9€ pour monter en compétence en autonomie."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 6. Produits boutique — ItemList + Product -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Guides & Outils Logistique — AmezianDigit",
+    "url": "https://ameziandigit.com/shop",
+    "numberOfItems": 4,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "@id": "https://ameziandigit.com/shop#guide-stock",
+          "name": "Guide : Gérer son Stock et Prédire la Demande",
+          "description": "Guide pratique complet pour gérer votre stock e-commerce et prévoir la demande. Formules, modèles Excel, méthodes statistiques et cas pratique. PDF 30 pages + fichier Excel.",
+          "brand": { "@type": "Brand", "name": "AmezianDigit" },
+          "author": { "@id": "https://ameziandigit.com/#person" },
+          "inLanguage": "fr",
+          "offers": {
+            "@type": "Offer",
+            "price": "29.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "seller": { "@id": "https://ameziandigit.com/#organization" }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "@id": "https://ameziandigit.com/shop#template-planification",
+          "name": "Template Excel : Planification des Commandes Fournisseurs",
+          "description": "Fichier Excel clé en main pour planifier vos commandes fournisseurs. Calcul EOQ, calendrier approvisionnement, alertes réapprovisionnement automatiques.",
+          "brand": { "@type": "Brand", "name": "AmezianDigit" },
+          "author": { "@id": "https://ameziandigit.com/#person" },
+          "inLanguage": "fr",
+          "offers": {
+            "@type": "Offer",
+            "price": "19.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "seller": { "@id": "https://ameziandigit.com/#organization" }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Product",
+          "@id": "https://ameziandigit.com/shop#guide-powerbi",
+          "name": "Dashboard Logistique Power BI — 10 KPI Clé en Main",
+          "description": "Fichier Power BI (.pbix) avec 10 KPI logistiques opérationnels préconfigurés. Guide d'installation et de personnalisation inclus.",
+          "brand": { "@type": "Brand", "name": "AmezianDigit" },
+          "author": { "@id": "https://ameziandigit.com/#person" },
+          "inLanguage": "fr",
+          "offers": {
+            "@type": "Offer",
+            "price": "39.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "seller": { "@id": "https://ameziandigit.com/#organization" }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Product",
+          "@id": "https://ameziandigit.com/shop#checklist-audit",
+          "name": "Checklist Audit Logistique Express — 50 Points",
+          "description": "PDF 15 pages. Diagnostiquez votre supply chain en 2 heures avec 50 points de contrôle en 5 domaines. Score par domaine et plan d'action prioritaire.",
+          "brand": { "@type": "Brand", "name": "AmezianDigit" },
+          "author": { "@id": "https://ameziandigit.com/#person" },
+          "inLanguage": "fr",
+          "offers": {
+            "@type": "Offer",
+            "price": "9.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "seller": { "@id": "https://ameziandigit.com/#organization" }
+          }
+        }
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

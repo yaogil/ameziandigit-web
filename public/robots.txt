@@ -1,0 +1,23 @@
+# robots.txt — ameziandigit.com
+# Généré pour AmezianDigit — Yaovi Gilbert AMEZIAN
+
+User-agent: *
+Allow: /
+Allow: /blog
+Allow: /shop
+Allow: /portfolio
+
+# Bloquer l'admin des robots
+Disallow: /admin
+Disallow: /admin/
+
+# Bloquer les assets non pertinents pour le SEO
+Disallow: /src/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://ameziandigit.com/sitemap.xml
+
+# Délai de crawl recommandé (optionnel)
+Crawl-delay: 1

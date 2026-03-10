@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SITEMAP — ameziandigit.com
+       À mettre à jour à chaque nouvel article de blog publié
+       Soumettre via : Google Search Console > Sitemaps
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- ── PAGE PRINCIPALE ────────────────────────────────────────── -->
+  <url>
+    <loc>https://ameziandigit.com/</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ameziandigit.com/"/>
+    <image:image>
+      <image:loc>https://ameziandigit.com/og-image.png</image:loc>
+      <image:title>AmezianDigit — Consultant Supply Chain &amp; Data Engineering</image:title>
+    </image:image>
+  </url>
+
+  <!-- ── BLOG ───────────────────────────────────────────────────── -->
+  <url>
+    <loc>https://ameziandigit.com/blog</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── BOUTIQUE ───────────────────────────────────────────────── -->
+  <url>
+    <loc>https://ameziandigit.com/shop</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── PORTFOLIO ──────────────────────────────────────────────── -->
+  <url>
+    <loc>https://ameziandigit.com/portfolio</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       ARTICLES DE BLOG
+       Ajouter ici chaque article publié avec :
+       - slug exact (même que dans Supabase)
+       - date de publication (published_at)
+       - changefreq : monthly pour les anciens articles
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <url>
+    <loc>https://ameziandigit.com/blog/stock-de-securite-calcul-formule-excel</loc>
+    <lastmod>2025-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/methode-abc-analyser-classer-stock</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/prevision-demande-3-methodes-ecommerce</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/seuil-reapprovisionnement-ne-plus-manquer-stock</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/dashboard-logistique-power-bi-10-kpi</loc>
+    <lastmod>2025-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/eoq-quantite-economique-commande</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/consultant-supply-chain-freelance-quand-faire-appel</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/optimisation-vrp-python-guide-debutant</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/reduire-ruptures-stock-ecommerce</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/mrp-vs-point-commande-quelle-methode</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/resilience-supply-chain-5-leviers-anticiper-crises</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ameziandigit.com/blog/indicateurs-kpi-logistique-essentiels</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

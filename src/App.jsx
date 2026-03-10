@@ -722,6 +722,7 @@ function CookieBanner() {
 
 // ─── APP ─────────────────────────────────────────────────────────────────────
 export default function App() {
+  useSEO('home');
   const active = useActiveSection(["hero", "services", "expertise", "methodologie", "contact"]);
   const [showNewsletter, setShowNewsletter] = useState(false);
   const [showChatbot, setShowChatbot] = useState(false);
