@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
+import useSEO from './useSEO';
 
 // ─── SUPABASE ────────────────────────────────────────────────────────────────
 const supabase = createClient(
@@ -324,6 +325,12 @@ function Nav({ active, onChatOpen }) {
             onMouseLeave={(e) => { e.target.style.color = C.muted; e.target.style.borderBottomColor = "transparent"; }}
           >
             Blog
+          </a>
+          <a href="/shop" style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: C.muted, textDecoration: "none", borderBottom: "2px solid transparent", paddingBottom: 2, transition: "color 0.2s" }}
+            onMouseEnter={(e) => { e.target.style.color = C.yellow; e.target.style.borderBottomColor = C.yellow; }}
+            onMouseLeave={(e) => { e.target.style.color = C.muted; e.target.style.borderBottomColor = "transparent"; }}
+          >
+            Boutique
           </a>
           <button onClick={onChatOpen} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, letterSpacing: "0.1em", padding: "8px 16px", backgroundColor: C.violet, color: C.white, border: "none", cursor: "pointer" }}>
             PROJET ?
