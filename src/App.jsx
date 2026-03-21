@@ -500,7 +500,15 @@ function NewsletterPopup({ onClose }) {
   const handleSubmit = async () => {
     if (!email) return;
     setStatus("loading");
+
     await supabase.from("newsletter").insert([{ email }]);
+
+    await fetch("/.netlify/functions/resend-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
     setStatus("success");
   };
 
