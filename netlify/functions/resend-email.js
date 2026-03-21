@@ -1,6 +1,6 @@
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const PDF_URL = "https://zwojlbifcanxppwwxonj.supabase.co/storage/v1/object/public/documents/guide-stockage-ecommerce.pdf";
-const TON_EMAIL = "gilbert.automatisation@gmail.com";
+const TON_EMAIL = "aneziangilbert8@gmail.com";
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
