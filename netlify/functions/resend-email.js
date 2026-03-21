@@ -1,5 +1,6 @@
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const PDF_URL = "https://zwojlbifcanxppwwxonj.supabase.co/storage/v1/object/public/documents/guide-stockage-ecommerce.pdf";
+const PDF_URL = "COLLE_ICI_TON_URL_SUPABASE";
+const TON_EMAIL = "gilbert.automatisation@gmail.com";
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -12,10 +13,12 @@ exports.handler = async (event) => {
   }
 
   try {
+    // ── 1. Télécharger le PDF ──────────────────────────
     const pdfRes = await fetch(PDF_URL);
     const pdfBuffer = await pdfRes.arrayBuffer();
     const pdfBase64 = Buffer.from(pdfBuffer).toString("base64");
 
+    // ── 2. Email au visiteur avec le PDF ───────────────
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -23,7 +26,7 @@ exports.handler = async (event) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Gilbert AMEZIAN <gilbert@ameziandigit.com>",
+        from: "Gilbert AMEZIAN <onboarding@resend.dev>",
         to: [email],
         subject: "Votre guide est là 👇",
         html: `
@@ -68,9 +71,31 @@ exports.handler = async (event) => {
 
     if (!res.ok) {
       const err = await res.text();
-      console.error("Resend error:", err);
-      return { statusCode: 500, body: "Erreur envoi email" };
+      console.error("Resend error visiteur:", err);
+      return { statusCode: 500, body: "Erreur envoi email visiteur" };
     }
+
+    // ── 3. Notification pour toi ───────────────────────
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "AmezianDigit <onboarding@resend.dev>",
+        to: [TON_EMAIL],
+        subject: `🔔 Nouvel inscrit : ${email}`,
+        html: `
+          <div style="font-family:Arial,sans-serif;max-width:500px;margin:0 auto;">
+            <h2 style="color:#6D28D9;">Nouvel inscrit newsletter</h2>
+            <p><strong>Email :</strong> ${email}</p>
+            <p><strong>Date :</strong> ${new Date().toLocaleString('fr-FR')}</p>
+            <p><strong>Source :</strong> Popup guide gratuit — ameziandigit.com</p>
+          </div>
+        `,
+      }),
+    });
 
     return { statusCode: 200, body: JSON.stringify({ success: true }) };
 
