@@ -1,5 +1,5 @@
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const PDF_URL = "COLLE_ICI_TON_URL_SUPABASE";
+const PDF_URL = "https://zwojlbifcanxppwwxonj.supabase.co/storage/v1/object/public/documents/guide-stockage-ecommerce.pdf";
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -79,13 +79,3 @@ exports.handler = async (event) => {
     return { statusCode: 500, body: "Erreur serveur" };
   }
 };
-```
-
----
-
-## Étape 4 — Ajouter la clé API dans Netlify
-
-**Netlify → Site settings → Environment variables → Add variable** :
-```
-RESEND_API_KEY
-re_5uaB7kMz_GKQBszEefVt1tXsngHtBUcU1
