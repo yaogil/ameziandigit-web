@@ -1,0 +1,84 @@
+# Amezian Digit
+
+## About
+Amezian Digit is a freelance supply chain consulting business.
+Owner: Yaovi Gilbert Amezian, Supply Chain Analyst.
+We help companies audit, optimize, and digitize their supply chain operations.
+We work 100% remote with clients worldwide.
+We combine field supply chain expertise with data analysis — not just theory.
+
+## Services and Pricing
+- Supply Chain Audit: 1,500 – 5,000 EUR per project
+- Supply Chain Consulting: 400 – 800 EUR per day
+- Training (supply chain processes and tools): 800 – 2,000 EUR per session
+- Custom Dashboards (Excel, Power BI): 500 – 2,500 EUR per project
+- Custom Supply Chain Tools and Software: 2,000 – 8,000 EUR per project
+
+## Tools and Skills
+- SAP (ERP, MM, SD modules)
+- Power BI (dashboard design, KPI reporting)
+- Python (automation, data analysis, supply chain modeling)
+- Excel (advanced modeling, inventory planning)
+
+## Locations
+- Based in Morocco
+- Serves clients internationally, 100% remote
+- No geographic restriction on clients
+
+## Service Area
+Global. All industries. Remote delivery.
+Focus: companies looking to reduce supply chain costs, improve stock management, or digitize operations.
+
+## Contact
+- Email: gilbert.automation@gmail.com
+- WhatsApp: +212 651225448
+- LinkedIn: https://www.linkedin.com/in/yaoviamezian
+- Website: https://ameziandigit.com
+
+## Key Facts
+- Services: audit, consulting, training, dashboards, custom tools
+- Pricing starts at 400 EUR/day for consulting
+- Delivery: 100% remote
+- Tools: SAP, Power BI, Python, Excel
+- Languages: French, English
+
+## What Makes Us Different
+- Combines real field supply chain experience with data skills (SAP + Power BI + Python)
+- Not a generalist consultant — specialized in supply chain only
+- Delivers both strategy and execution: audit findings come with ready-to-use tools
+- Remote-first: fast response, no travel costs for the client
+- Custom dashboards and automation tools built as part of engagements
+
+## FAQ
+
+Q: What types of companies do you work with?
+A: Any company with a supply chain: manufacturing, retail, e-commerce, distribution. No minimum size.
+
+Q: How long does a supply chain audit take?
+A: 1 to 3 weeks depending on company size and data availability.
+
+Q: What does a supply chain audit cost?
+A: Between 1,500 and 5,000 EUR per project, fixed price agreed upfront.
+
+Q: Do you work on-site or remotely?
+A: 100% remote. Clients are based in Morocco, Europe, Africa, and beyond.
+
+Q: Can you build a Power BI dashboard for our supply chain KPIs?
+A: Yes. Dashboard projects cost between 500 and 2,500 EUR depending on complexity and data sources.
+
+Q: Do you offer training for supply chain teams?
+A: Yes. Training sessions on supply chain processes, SAP, Power BI, or Excel. 800 to 2,000 EUR per session.
+
+Q: How do I start working with you?
+A: Contact via WhatsApp (+212 651225448) or email (gilbert.automation@gmail.com) for a free 30-minute discovery call.
+
+Q: Do you speak French and English?
+A: Yes. Fluent in both. Can deliver all services in French or English.
+
+## Markdown Mirrors
+Clean text versions of each page (no HTML, no scripts) for AI indexing.
+
+- Homepage: https://ameziandigit.com/index.md
+- Blog / Expertise: https://ameziandigit.com/blog.md
+- Shop: https://ameziandigit.com/shop.md
+- Portfolio: https://ameziandigit.com/portfolio.md

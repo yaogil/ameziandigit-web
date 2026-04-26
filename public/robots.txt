@@ -1,23 +1,53 @@
 # robots.txt — ameziandigit.com
-# Généré pour AmezianDigit — Yaovi Gilbert AMEZIAN
+# Mis à jour le 2026-04-26
 
+# ── Crawlers généraux ────────────────────────────────────────────────────────
 User-agent: *
 Allow: /
 Allow: /blog
 Allow: /shop
 Allow: /portfolio
-
-# Bloquer l'admin des robots
 Disallow: /admin
 Disallow: /admin/
-
-# Bloquer les assets non pertinents pour le SEO
 Disallow: /src/
 Disallow: /*.json$
 Disallow: /node_modules/
 
-# Sitemap
-Sitemap: https://ameziandigit.com/sitemap.xml
+# ── Google ───────────────────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
 
-# Délai de crawl recommandé (optionnel)
-Crawl-delay: 1
+# Google AI (Search Generative Experience, Gemini)
+User-agent: Google-Extended
+Allow: /
+
+# ── OpenAI / ChatGPT ─────────────────────────────────────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# ── Anthropic / Claude ───────────────────────────────────────────────────────
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# ── Perplexity ───────────────────────────────────────────────────────────────
+User-agent: PerplexityBot
+Allow: /
+
+# ── Autres IA majeures ───────────────────────────────────────────────────────
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# ── Sitemap ──────────────────────────────────────────────────────────────────
+Sitemap: https://ameziandigit.com/sitemap.xml
