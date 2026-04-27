@@ -312,98 +312,390 @@
   }
   </script>
 
-  <!-- 6. Produits boutique — ItemList + Product -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Guides & Outils Logistique — AmezianDigit",
-    "url": "https://ameziandigit.com/shop",
-    "numberOfItems": 4,
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "Product",
-          "@id": "https://ameziandigit.com/shop#guide-stock",
-          "name": "Guide : Gérer son Stock et Prédire la Demande",
-          "description": "Guide pratique complet pour gérer votre stock e-commerce et prévoir la demande. Formules, modèles Excel, méthodes statistiques et cas pratique. PDF 30 pages + fichier Excel.",
-          "brand": { "@type": "Brand", "name": "AmezianDigit" },
-          "author": { "@id": "https://ameziandigit.com/#person" },
-          "inLanguage": "fr",
-          "offers": {
-            "@type": "Offer",
-            "price": "29.00",
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "seller": { "@id": "https://ameziandigit.com/#organization" }
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "Product",
-          "@id": "https://ameziandigit.com/shop#template-planification",
-          "name": "Template Excel : Planification des Commandes Fournisseurs",
-          "description": "Fichier Excel clé en main pour planifier vos commandes fournisseurs. Calcul EOQ, calendrier approvisionnement, alertes réapprovisionnement automatiques.",
-          "brand": { "@type": "Brand", "name": "AmezianDigit" },
-          "author": { "@id": "https://ameziandigit.com/#person" },
-          "inLanguage": "fr",
-          "offers": {
-            "@type": "Offer",
-            "price": "19.00",
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "seller": { "@id": "https://ameziandigit.com/#organization" }
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@type": "Product",
-          "@id": "https://ameziandigit.com/shop#guide-powerbi",
-          "name": "Dashboard Logistique Power BI — 10 KPI Clé en Main",
-          "description": "Fichier Power BI (.pbix) avec 10 KPI logistiques opérationnels préconfigurés. Guide d'installation et de personnalisation inclus.",
-          "brand": { "@type": "Brand", "name": "AmezianDigit" },
-          "author": { "@id": "https://ameziandigit.com/#person" },
-          "inLanguage": "fr",
-          "offers": {
-            "@type": "Offer",
-            "price": "39.00",
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "seller": { "@id": "https://ameziandigit.com/#organization" }
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "item": {
-          "@type": "Product",
-          "@id": "https://ameziandigit.com/shop#checklist-audit",
-          "name": "Checklist Audit Logistique Express — 50 Points",
-          "description": "PDF 15 pages. Diagnostiquez votre supply chain en 2 heures avec 50 points de contrôle en 5 domaines. Score par domaine et plan d'action prioritaire.",
-          "brand": { "@type": "Brand", "name": "AmezianDigit" },
-          "author": { "@id": "https://ameziandigit.com/#person" },
-          "inLanguage": "fr",
-          "offers": {
-            "@type": "Offer",
-            "price": "9.00",
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "seller": { "@id": "https://ameziandigit.com/#organization" }
+ <!-- 6. Produits boutique — ItemList + Product (complet avec image, retour, livraison) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Guides & Templates Logistique — AmezianDigit",
+  "url": "https://ameziandigit.com/shop",
+  "numberOfItems": 12,
+  "itemListElement": [
+    {
+      "@type": "ListItem", "position": 1,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#guide-01",
+        "name": "Gérer son Stock & Prévoir la Demande",
+        "description": "Guide complet avec formules SS, EOQ, prévision de demande et cas pratique 50 références. PDF 30 pages + fichier Excel.",
+        "image": "https://ameziandigit.com/product-guide-01.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "29.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
           }
         }
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "ListItem", "position": 2,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#guide-02",
+        "name": "Template Planification Commandes Fournisseurs",
+        "description": "Calendrier 12 mois, EOQ automatique, alertes multi-fournisseurs. PDF + Excel.",
+        "image": "https://ameziandigit.com/product-guide-02.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 3,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#guide-03",
+        "name": "Dashboard Power BI Logistique",
+        "description": "10 KPI logistiques préconfigurés. Fichier .pbix + guide DAX complet.",
+        "image": "https://ameziandigit.com/product-guide-03.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "39.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 4,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#guide-04",
+        "name": "Python pour la Logistique",
+        "description": "5 scripts prêts à l'emploi : nettoyage de données, prévision de demande, rapports automatiques, alertes.",
+        "image": "https://ameziandigit.com/product-guide-04.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "29.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 5,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#guide-05",
+        "name": "Checklist Audit Logistique Express — 50 Points",
+        "description": "PDF 15 pages. 50 points de contrôle en 5 domaines. Score par domaine et plan d'action prioritaire.",
+        "image": "https://ameziandigit.com/product-guide-05.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "9.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 6,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#guide-06",
+        "name": "Supply Chain Résiliente",
+        "description": "5 leviers pour résister aux crises : pandémies, pénuries, disruptions géopolitiques.",
+        "image": "https://ameziandigit.com/product-guide-06.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "29.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 7,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#guide-07",
+        "name": "Analyse ABC-XYZ",
+        "description": "Segmentez votre stock pour concentrer vos efforts là où ça compte. Matrice croisée et aide à la décision.",
+        "image": "https://ameziandigit.com/product-guide-07.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 8,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#guide-08",
+        "name": "Pack Freelance Logistique",
+        "description": "Tout pour lancer votre activité de consultant supply chain freelance.",
+        "image": "https://ameziandigit.com/product-guide-08.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "49.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 9,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#template-01",
+        "name": "Template Gestion Stock & Stock de Sécurité",
+        "description": "Formules SS, EOQ, alertes statut automatiques. 20 références prêtes à l'emploi.",
+        "image": "https://ameziandigit.com/product-template-01.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 10,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#template-02",
+        "name": "Template Planification Commandes Fournisseurs Excel",
+        "description": "EOQ automatique + calendrier approvisionnement 12 mois + référentiel fournisseurs.",
+        "image": "https://ameziandigit.com/product-template-02.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 11,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#template-03",
+        "name": "Template Analyse ABC-XYZ Excel",
+        "description": "Classement automatique ABC + XYZ + matrice croisée. 20 références prêtes à l'emploi.",
+        "image": "https://ameziandigit.com/product-template-03.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem", "position": 12,
+      "item": {
+        "@type": "Product",
+        "@id": "https://ameziandigit.com/shop#template-04",
+        "name": "Template Dashboard KPI Logistique Excel",
+        "description": "10 KPI calculés automatiquement + dashboard visuel + courbes de tendance.",
+        "image": "https://ameziandigit.com/product-template-04.png",
+        "brand": { "@type": "Brand", "name": "AmezianDigit" },
+        "author": { "@id": "https://ameziandigit.com/#person" },
+        "inLanguage": "fr",
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00", "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://ameziandigit.com/#organization" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "EUR" },
+            "deliveryTime": { "@type": "ShippingDeliveryTime", "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" }, "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY" } },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR","MA","BE","CH","SN","CI"] }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["FR","MA","BE","CH"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+            "merchantReturnDays": 0
+          }
+        }
+      }
+    }
+  ]
+}
+</script>
 
 </head>
 <body>
